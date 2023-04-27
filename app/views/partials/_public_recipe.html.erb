@@ -1,0 +1,9 @@
+<div class="recipe-info">
+  <div class="left-side">
+  <h4><%=link_to "#{recipe.name}", recipe_path(recipe) %><h4>
+    <p class='pr_name'>by: <%= recipe.user.name %></p>
+  </div>
+  <p class='pr_name'>Total food Items: <%= recipe.recipe_foods.count %></p>
+  <p class='pr_name'>Total price Usd: <%= recipe.total_price%></p>
+
+</div>
