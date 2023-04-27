@@ -1,0 +1,30 @@
+
+    <div class="foods_container">
+     <%= link_to new_food_path do %>
+      <button class="add-food">Add New Food</button>
+      <% end %>
+        
+    <table id = "foods">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Measurement_Unit</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+   
+      <% @foods.each do |food| %>
+        <tr>
+          <%= render('partials/foodie', food: food) %>
+          <td class="actions">
+            <%= link_to "Delete", food_path(food), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+      </table>
+
+      </div>
