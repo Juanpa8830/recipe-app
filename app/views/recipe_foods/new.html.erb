@@ -1,0 +1,23 @@
+<div id="container">
+<div class="form"
+<h3>ADD NEW INGREDIENT</h3>
+
+<br>
+<br>
+
+<%= form_with model: @recipe_food, url:recipe_recipe_foods_path(@recipe_food.recipe) do |form| %>
+  <div class="form-cont">
+    
+    <div class="form-field">
+    <%= form.label :quantity, :class => 'form-name' %> 
+    <%= form.text_field :quantity, :class=>'form-text-field' %>
+
+    <%= form.label :food_id, :class => 'form-name' %> 
+    <%= form.select :food_id, Food.all.map{|food| [food.name, food.id]}, :class=>'form-text-field' %>
+    
+    <br>
+    <%= form.submit "Add ingredient" %>
+  </div>
+<% end %>
+</div>
+</div>  
