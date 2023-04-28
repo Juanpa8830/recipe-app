@@ -1,12 +1,12 @@
 
 <div class="recipe-info">
-<div class="left-side">
-
-
-<h4><%=link_to "#{recipe.name}", recipe_path(recipe) %><h4>
-
-<%= link_to "Delete", recipe_path(recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
-</div>
-<%= recipe.description %>
+    <div class="p_recipe_item"> 
+        <div class="left-side">
+            <h4><%=link_to "#{recipe.name}", recipe_path(recipe), class:"link_public" %><h4>
+            <%= link_to "Delete", recipe_path(recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-recipe" %>
+        </div>
+        <div class="right-side">
+            <p class="r-rescription"><%= recipe.description %></p>
+        </div>
+    </div>
 </div>
