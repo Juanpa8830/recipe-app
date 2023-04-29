@@ -1,35 +1,33 @@
 class RecipeFoodsController < ApplicationController
-    before_action :authenticate_user!  
+  before_action :authenticate_user!
 
-def new
-@recipe_food = RecipeFood.new
-@recipe_food.recipe_id = params[:recipe_id]
-end 
+  def new
+    @recipe_food = RecipeFood.new
+    @recipe_food.recipe_id = params[:recipe_id]
+  end
 
-def destroy
-    
+  def destroy
     @recipe_food = RecipeFood.find(params[:id])
     recipe = @recipe_food.recipe
     @recipe_food.destroy
-    
+
     respond_to do |format|
-    format.html { redirect_to recipe_path(recipe), notice: 'recipe_food deleted successfully' }
+      format.html { redirect_to recipe_path(recipe), notice: 'recipe_food deleted successfully' }
     end
+  end
+
+  def create
+    @recipe_food = RecipeFood.new(recipe_food_params)
+    @recipe_food.recipe_id = params[:recipe_id]
+
+    if @recipe_food.save
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was successfully created.'
+    else
+      render :new
     end
+  end
 
-
-def create
-@recipe_food = RecipeFood.new(recipe_food_params)
-@recipe_food.recipe_id = params[:recipe_id]   
-
-if @recipe_food.save
-    redirect_to recipe_path(params[:recipe_id]), notice: 'Recipe was successfully created.'
-else
-    render :new
-end
-end
-
-def edit
+  def edit
     @recipe_food = RecipeFood.find(params[:id])
     @recipe = Recipe.find(params[:recipe_id])
   end
@@ -43,10 +41,9 @@ def edit
     end
   end
 
-private
+  private
 
-def recipe_food_params
-params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
-end
-
+  def recipe_food_params
+    params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
+  end
 end
