@@ -7,7 +7,6 @@ class Recipe < ApplicationRecord
   validates :cooking_time, presence: true
   validates :description, presence: true
 
-
   def total_price
     total = 0
     recipe_foods.each do |rfood|
