@@ -1,21 +1,24 @@
 <div id="container">
  
      <div class="recipe_top">
-            <h4>Recipe <%= @recipe.id %></h4>
-            <p class='recipe-ptime'>Preparation time:  <%= @recipe.preparation_time %> hr</p>
-            <p class='recipe-ptime'>Cooking time:  <%= @recipe.cooking_time %> hr</p>
-            <p class='recipe-ptime'>Preparation steps:  <%= @recipe.description %></p>
-         <div class='public_logo'>
+            <div class='left_info'>
+              <h4 class='recipe_name'>Recipe <%= @recipe.id %></h4>
+              <p class='recipe-ptime'>Preparation time:  <%= @recipe.preparation_time %> hr</p>
+              <p class='recipe-ptime'>Cooking time:  <%= @recipe.cooking_time %> hr</p>
+              <p class='prep-steps'>Preparation steps:  <%= @recipe.description %></p>
+            </div>
+            <div class='public_logo'>
             <p><%=@recipe.public ? 'Public' : 'Not Public'%></p>
                <div class="<%=@recipe.public ? 'public' : 'not_public'%>">
                  <span class="<%=@recipe.public ? 'public_switch' : 'not_public_switch'%>"></span>
               </div>
          </div>
     </div>
+    <br>
       <div class="recipe_foods_buttons">
       <% if user_signed_in? && @recipe.user == current_user %>
       <%= link_to "/shopping_list" do %>
-        <button class="add-recipe">Generate shopping list</button>
+        <button class="add-recipe-food">Generate shopping list</button>
         <% end %>
         <% end %>
 
@@ -25,7 +28,8 @@
           <% end %>
           <% end %>
       </div>
-      
+      <br>
+      <br>
       <table id = "recipe_foods">
       <thead>
         <tr>
