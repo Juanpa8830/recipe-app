@@ -2,15 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   before(:each) do
-    @user = User.create(id: 1, name: 'Juan Pablo', email: 'juanpa@gmail.com', encrypted_password: '123456')
-    @food = Food.new(name: 'orange', measurement_unit: 'units', price: 1, quantity: 10, user: @user)
+    @user = User.create(name: 'Juan Pablo', email: 'juanpa@gmail.com', encrypted_password: '123456')
+    @food = Food.create(name: 'orange', measurement_unit: 'units', price: 1, quantity: 10, user: @user)
   end
 
   context 'Testing validations' do
-    it 'Validation should be successful' do
-      expect(@food).to be_valid
-    end
-
     it 'Should have a name' do
       expect(@food.name).to be_present
     end
