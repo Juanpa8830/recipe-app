@@ -1,0 +1,27 @@
+<div id="container">
+  <div id="form">
+    <h3 class="form-title">ADD NEW FOOD</h3>
+    <br>
+    <br>
+    <%= form_with model: @food, url:foods_path, html: {class: "form-cont", id: "add-food-form"} do |form| %>
+      <div class="form-field">
+        <%= form.label :name, class: 'form-label' %> 
+        <%= form.text_field :name, class: 'form-text-field' %>
+      </div>
+      <div class="form-field">
+        <%= form.label :measurement_unit, class: 'form-label' %> 
+        <%= form.text_field :measurement_unit, class: 'form-text-field' %>
+      </div>
+      <div class="form-field">
+        <%= form.label :price_usd, class: 'form-label' %> 
+        <%= form.text_field :price, class: 'form-text-field' %>
+      </div>
+      <div class="form-field">
+        <%= form.label :quantity, class: 'form-label' %> 
+        <%= form.text_field :quantity, class: 'form-text-field' %>
+      </div>
+      <br>
+      <%= form.submit "Add food", class: 'form-submit-btn' %>
+    <% end %>
+  </div>
+</div>

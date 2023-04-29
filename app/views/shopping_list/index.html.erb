@@ -1,0 +1,20 @@
+<h1 class="slist">Shopping List</h1>
+<table id="sl-foods">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @missing_ingredients.each do |ingredient| %>
+<tr>
+  <td><%= ingredient[:name] %></td>
+  <td><%= ingredient[:quantity] %> <%=ingredient[:unit]%></td>
+  <td>$ <%= ingredient[:price] %></td>
+</tr>
+  <% end %>
+</tbody>
+ 
+</table>

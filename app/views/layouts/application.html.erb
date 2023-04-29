@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+<section>
+  <nav class="navbar_container">
+  <div class="navbar_wrapper">
+    <div class="navbar_logo-container">
+      <a href="/" class="navbar_logo-link">
+        <%= image_tag("jprecipe.png", alt: "Logo", class: "navbar__logo") %>
+      </a>
+    </div>
+    <ul class="navbar_list">
+      <li class="navbar__item">
+        <a href = "/public_recipes" class="navbar__item-link">Public Recipes</a>
+      </li>
+      <% if user_signed_in? %>
+        <li class="navbar__item">
+          <a href="<%= foods_path %>" class="navbar__item-link">Foods</a>
+        </li>
+        <li class="navbar__item">
+          <a href="<%= recipes_path %>" class="navbar__item-link">Recipes</a>
+        </li>
+      <% end %>
+    </ul>
+    <div class="navbar__auth">
+      <% if user_signed_in? %>
+        <p class="p_welcome"> Hi! <%= current_user.name %></p>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete,  class:"btn_logout" %>
+      <% else %>
+        <%= button_to "Sign up", new_user_registration_path, class: "btn_signup" %>
+        <%= button_to "log in", new_user_session_path, class: "btn_signin" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="info_container">
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+</div>
+</section>
+  </body>
+</html>
