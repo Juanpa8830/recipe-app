@@ -37,8 +37,8 @@
         <p class="p_welcome"> Hi! <%= current_user.name %></p>
         <%= button_to "Log out", destroy_user_session_path, method: :delete,  class:"btn_logout" %>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn_signup" %>
-        <%= button_to "Log in", new_user_session_path, class: "btn_signin" %>
+        <%= button_to "Sign up", new_user_registration_path, class: "btn_signup" %>
+        <%= button_to "log in", new_user_session_path, class: "btn_signin" %>
       <% end %>
     </div>
   </div>
