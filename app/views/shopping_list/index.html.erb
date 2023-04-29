@@ -1,4 +1,8 @@
 <h1 class="slist">Shopping List</h1>
+<div class="sl_pinfo">
+<p style="text-align:center;">Total value of food needed =  <%= @food_needed %></p>
+<p style="text-align:center;">Amount of food to buy = $<%= @total_price %> </p>
+</div>
 <table id="sl-foods">
   <thead>
     <tr>
@@ -16,5 +20,6 @@
 </tr>
   <% end %>
 </tbody>
- 
+
 </table>
+ 
