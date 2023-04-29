@@ -18,5 +18,6 @@ class ShoppingListController < ApplicationController
       }
     end
     @total_price = @missing_ingredients.map { |missing_ingredient| missing_ingredient[:price] }.sum
+    @food_needed = @missing_ingredients.count
   end
 end

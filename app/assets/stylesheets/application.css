@@ -389,6 +389,13 @@ label {
   margin-left: 20%;
 }
 
+.sl_pinfo {
+  display: flex;
+  justify-content: center;
+  gap: 7%;
+  font-size: 25px;
+}
+
 #sl-foods th {
   background-color: #638dfa;
 }
